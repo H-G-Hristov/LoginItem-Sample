@@ -249,15 +249,13 @@ extension AppDelegate {
             var logStr =
                 """
                     Logout/Shutdown/Restart event at: \(dateTimeStr)
-                    Event type:                       \(self?.getTerminationReason() ?? "nil")
-                    \n
+                    Event type:                       \(self?.getTerminationReason() ?? "nil")\n
                 """
-            // https://www.hackingwithswift.com/example-code/networking/how-to-check-for-internet-connectivity-using-nwpathmonitor
-            // https://stackoverflow.com/questions/1083701/how-to-check-for-an-active-internet-connection-on-ios-or-macos
             logStr.append(self?.checkNetworkReachability() ?? "")
             do {
                 try logStr.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-            } catch {
+            }
+            catch {
                 // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
             }
             
@@ -269,9 +267,14 @@ extension AppDelegate {
     }
     
     func checkNetworkReachability(with hostName: String? = nil) -> String {
-        // https://marcosantadev.com/network-reachability-swift/
+        // Used method:
+        //   https://marcosantadev.com/network-reachability-swift/
+        // Other methods:
+        //   https://www.hackingwithswift.com/example-code/networking/how-to-check-for-internet-connectivity-using-nwpathmonitor
+        //   https://stackoverflow.com/questions/1083701/how-to-check-for-an-active-internet-connection-on-ios-or-macos
         
         let reachability: SCNetworkReachability?
+        
         // Obtain reachability by host name
         if let hostName = hostName {
             reachability = SCNetworkReachabilityCreateWithName(nil, hostName)
@@ -292,22 +295,17 @@ extension AppDelegate {
                 }
             })
         }
-        var reachabilityFlags = SCNetworkReachabilityFlags()
         
+        var reachabilityFlags = SCNetworkReachabilityFlags()
         var areFlagsOk = false
+        
         if let reachability = reachability {
             areFlagsOk = SCNetworkReachabilityGetFlags(reachability, &reachabilityFlags)
         }
         
-        // The specified node name or address can be reached using the current network configuration.
-        let isReachable: Bool = reachabilityFlags.contains(.reachable)
-        
         return
             """
-                Networkig reachability object is: \((reachability == nil) ? "unavailable" : "available")
-                Network reachability object:      \(reachability.debugDescription)
                 Network reachability flags state: \(areFlagsOk ? "OK" : "unavailable")
-                Network is reachable flag state:  \(isReachable)
                 Network is reachable:             \(isNetworkReachable(with: reachabilityFlags) )
             """
     }
@@ -318,7 +316,8 @@ extension AppDelegate {
         let canConnectAutomatically = flags.contains(.connectionOnDemand) || flags.contains(.connectionOnTraffic)
         let canConnectWithoutUserInteraction = canConnectAutomatically && !flags.contains(.interventionRequired)
         
-        return isReachable && (!needsConnection || canConnectWithoutUserInteraction)
+        return isReachable
+            && (!needsConnection || canConnectWithoutUserInteraction)
     }
     
     func makeSaveToDirectory(for url: URL) -> Bool {
@@ -330,6 +329,7 @@ extension AppDelegate {
         }
         catch {
             print(error)
+            
             return false
         }
         
