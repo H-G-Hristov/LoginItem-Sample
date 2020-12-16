@@ -9,6 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
     static let autoStartDidChange = Notification.Name(rawValue: "autoStartDidChange")
     static let autoStart = "autoStart"
     
@@ -22,19 +23,20 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-
+    
     @IBAction func autoStartsButtonClicked(_ sender: Any) {
         preferences.set((sender as! NSButton).state == .on, forKey: ViewController.autoStart)
         NotificationCenter.default.post(name: ViewController.autoStartDidChange, object: nil)
     }
+    
 }
 

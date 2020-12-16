@@ -389,7 +389,7 @@
 				CODE_SIGN_ENTITLEMENTS = "LoginItem Sample/LoginItem_Sample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 96NM39SGJ5;
+				DEVELOPMENT_TEAM = 5235Z645TX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "LoginItem Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -409,7 +409,7 @@
 				CODE_SIGN_ENTITLEMENTS = "LoginItem Sample/LoginItem_Sample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 96NM39SGJ5;
+				DEVELOPMENT_TEAM = 5235Z645TX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "LoginItem Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -429,7 +429,7 @@
 				CODE_SIGN_ENTITLEMENTS = "LoginItem Sample Launcher/LoginItem_Sample_Launcher.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 96NM39SGJ5;
+				DEVELOPMENT_TEAM = 5235Z645TX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "LoginItem Sample Launcher/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,7 +450,7 @@
 				CODE_SIGN_ENTITLEMENTS = "LoginItem Sample Launcher/LoginItem_Sample_Launcher.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 96NM39SGJ5;
+				DEVELOPMENT_TEAM = 5235Z645TX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "LoginItem Sample Launcher/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

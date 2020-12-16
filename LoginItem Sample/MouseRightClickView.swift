@@ -9,6 +9,7 @@
 import Cocoa
 
 class MouseRightClickView: NSView {
+    
     var closure:(() -> ())!
     
     override func rightMouseUp(with event: NSEvent) {
@@ -16,4 +17,5 @@ class MouseRightClickView: NSView {
         
         closure()
     }
+    
 }
